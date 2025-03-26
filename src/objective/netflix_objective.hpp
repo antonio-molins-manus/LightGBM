@@ -29,7 +29,7 @@ public:
     num_data_ = num_data;
     label_ = metadata.label();
     is_censored_ = metadata.weights();
-    weight_ = metadata.query_weights();
+    weight_ = metadata.weights2();
   }
 
   void GetGradients(const double* score, score_t* gradients, score_t* hessians) const override {
