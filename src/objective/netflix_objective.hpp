@@ -29,7 +29,7 @@ public:
     num_data_ = num_data;
     label_ = metadata.label();
     is_censored_ = metadata.weights();
-    weight_ = metadata.weights2();
+    weight_ = metadata.query_weights();
   }
 
   void GetGradients(const double* score, score_t* gradients, score_t* hessians) const override {
@@ -106,7 +106,7 @@ public:
 
   int NumModelPerIteration() const override { return 2; }
 
-  int NumPredictOneRow(int, bool, bool) const override { return 2; }
+  int NumPredictOneRow() const override { return 2; }
 
   bool NeedAccuratePrediction() const override { return true; }
 
